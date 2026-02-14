@@ -1,9 +1,9 @@
 import { IsNotEmpty, IsOptional, IsString } from 'class-validator';
 
 export class CreateBookingDto {
-  @IsNotEmpty()
+  @IsOptional()
   @IsString()
-  salonId: string;
+  salonId?: string;
 
   @IsNotEmpty()
   @IsString()
