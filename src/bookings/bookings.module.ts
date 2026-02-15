@@ -3,12 +3,14 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { Booking, BookingSchema } from './schemas/booking.schema.js';
 import { BookingsController } from './bookings.controller.js';
 import { BookingsService } from './bookings.service.js';
+import { CustomersModule } from '../customers/customers.module.js';
 
 @Module({
   imports: [
     MongooseModule.forFeature([
       { name: Booking.name, schema: BookingSchema },
     ]),
+    CustomersModule,
   ],
   controllers: [BookingsController],
   providers: [BookingsService],
