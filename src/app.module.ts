@@ -8,8 +8,10 @@ import { UsersModule } from './users/users.module.js';
 import { ServicesModule } from './services/services.module.js';
 import { BookingsModule } from './bookings/bookings.module.js';
 import { SeedModule } from './seed/seed.module.js';
+import { AppController } from './app.controller.js';
 
 @Module({
+  controllers: [AppController],
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
