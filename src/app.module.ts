@@ -9,6 +9,8 @@ import { ServicesModule } from './services/services.module.js';
 import { BookingsModule } from './bookings/bookings.module.js';
 import { CustomersModule } from './customers/customers.module.js';
 import { SeedModule } from './seed/seed.module.js';
+import { ContentModule } from './content/content.module.js';
+import { UploadModule } from './upload/upload.module.js';
 import { AppController } from './app.controller.js';
 
 @Module({
@@ -40,6 +42,8 @@ import { AppController } from './app.controller.js';
     BookingsModule,
     CustomersModule,
     SeedModule,
+    ContentModule,
+    UploadModule,
   ],
 })
 export class AppModule {}
