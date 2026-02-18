@@ -6,6 +6,7 @@ import {
 import { GitHubService } from './github.service.js';
 import { SalonsService } from '../salons/salons.service.js';
 import { UsersService } from '../users/users.service.js';
+import { validateContentUpdate } from './content-validation.js';
 
 @Injectable()
 export class ContentService {
@@ -45,6 +46,8 @@ export class ContentService {
     salonId: string,
     newContent: object,
   ): Promise<{ success: true }> {
+    const validated = validateContentUpdate(newContent);
+
     const user = await this.usersService.findById(userId);
     if (!user) {
       throw new NotFoundException('User not found');
@@ -64,7 +67,7 @@ export class ContentService {
       );
     }
 
-    const merged = { ...current, ...newContent } as Record<string, unknown>;
+    const merged = { ...current, ...validated } as Record<string, unknown>;
     if (Object.prototype.hasOwnProperty.call(current, 'gallery')) {
       merged.gallery = (current as Record<string, unknown>).gallery;
     }
